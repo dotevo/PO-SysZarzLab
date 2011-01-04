@@ -1,5 +1,6 @@
 ﻿<?php
 class Template{
+	public  $sitenav;
 	public function renderApplicationTop(){
 ?>
 
@@ -19,13 +20,18 @@ class Template{
     <div id="main">
         <!-- header -->
         <div id="header">
+<?php
+if(isset($sitenav)&$sitenav==true){
+?>
             <ul class="site-nav">
-                <!--<li><a href="home.html">Home</a></li>
-                      <li><a href="about-us.html">About-us</a></li>
-                      <li><a href="articles.html">Articles</a></li>
-                      <li><a href="contact-us.html" class="act">Contact-us</a></li>
-                      <li class="last"><a href="sitemap.html">Sitemap</a></li>-->
+                <li><a href="index.php?controller=rezerwacje">Moje rezerwacje</a></li>
+                <li><a href="index.php?controller=sale">Sale</a></li>
+                <li><a href="index.php?controller=userki">Usterki</a></li>
+                <li class="last"><a href="index.php?controller=zapotrzebowanie">Zapotrzebowanie</a></li>
             </ul>
+<?php
+}
+?>
             <div class="logo">
                 <p class="maintitle">System zarządzania laboratoriami<br />Politechniki Wrocławskiej</p></div>
         </div>
