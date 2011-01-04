@@ -13,6 +13,9 @@ class Router{
 			case 'saleszukaj':
 				require('application/controllers/saleszukaj.php');
 				return new SaleSzukajController();			
+			case 'salainfo':
+				require('application/controllers/salainfo.php');
+				return new SalaInfoController();			
 			break;
 			default:
 				require('application/controllers/logowanie.php');

@@ -3,7 +3,6 @@ class Template{
 	public $sitenav;
 	public function renderApplicationTop(){
 ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -33,14 +32,16 @@ if(isset($this->sitenav)&$this->sitenav==true){
 }
 ?>
             <div class="logo">
-                <p class="maintitle">System zarządzania laboratoriami<br />Politechniki Wrocławskiej</p></div>
+                <p class="maintitle">System zarządzania laboratoriami<br />Politechniki Wrocławskiej</p>
+			</div>
         </div>
 <?php
 	}	
 
 	public function renderApplicationBottom(){
 ?>
-<div id="footer">
+		<!-- footer -->
+		<div id="footer">
             <div class="indent">
                 <div class="fleft">
                     Copyrights -

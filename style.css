@@ -25,18 +25,22 @@ p { margin:0; padding:0;}
 .tail-top-right { position:absolute; right:0; top:0; width:50%; height:285px; background:url(images/tail-top-right.gif) repeat-x right top;}
 
 hr {margin-top: 5px; margin-bottom:5px; clear: both}
+.tabborder {border-style: inset; border-color: #555555;}
+.tabborder td {padding: 5px; border: 1px solid black;}
+.tabheader {font-weight: bold; text-align:center}
+.timetable {font-weight: bold; text-align:center; font-size: 11px}
+.timetable td {width: 80px;}
 
 /*==================forms====================*/
 input, select { vertical-align:middle; font-weight:normal;}
 img {border:0; vertical-align:top; text-align:left;}
 .grouptitle{font-weight: bold; padding-bottom: 10px;}
-
+.widelabel label {width: 160px!important; }
 #form { clear:right; width:100%; overflow:hidden;}
 #form fieldset { border:none; float:left; }
 #form .field { clear:both;}
 #form label { float:left; width:130px; line-height:18px; padding-bottom:8px; font-weight:bold; color:#4c7cbd;}
 #form .btn {padding: 3px 10px 3px 10px; margin: 5px 0;} 
-#form textarea { width:539px; height:252px; padding:1px 0 1px 3px; background:url(images/png-bg.png) left top; border:1px solid #d6d6d6; color:#414141; margin-bottom:15px; overflow:auto; float:left;}
 #form .hour input { width: 18px; }
 
 /*==================list====================*/
