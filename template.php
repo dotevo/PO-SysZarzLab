@@ -1,6 +1,6 @@
 ﻿<?php
 class Template{
-	public  $sitenav;
+	public $sitenav;
 	public function renderApplicationTop(){
 ?>
 
@@ -21,13 +21,13 @@ class Template{
         <!-- header -->
         <div id="header">
 <?php
-if(isset($sitenav)&$sitenav==true){
+if(isset($this->sitenav)&$this->sitenav==true){
 ?>
             <ul class="site-nav">
-                <li><a href="index.php?controller=rezerwacje">Moje rezerwacje</a></li>
-                <li><a href="index.php?controller=sale">Sale</a></li>
-                <li><a href="index.php?controller=userki">Usterki</a></li>
-                <li class="last"><a href="index.php?controller=zapotrzebowanie">Zapotrzebowanie</a></li>
+                <li><a href="index.php?controller=rezerwacjelista">Moje rezerwacje</a></li>
+                <li><a href="index.php?controller=salelista">Sale</a></li>
+                <li><a href="index.php?controller=userkilista">Usterki</a></li>
+                <li class="last"><a href="index.php?controller=zapotrzebowanielista">Zapotrzebowanie</a></li>
             </ul>
 <?php
 }
