@@ -47,7 +47,7 @@ img {border:0; vertical-align:top; text-align:left;}
 ul { list-style:none;}
 
 .site-nav { width:100%; overflow:hidden; padding-top:15px;}
-.site-nav li { float:left; font-weight:bold; border-right:1px solid #d5d5d5; padding:0 73px 4px 73px;}
+.site-nav li { float:left; font-weight:bold; border-right:1px solid #d5d5d5; padding:0 63px 4px 63px;}
 .site-nav li a { color:#000;}
 .site-nav li a:hover,
 .site-nav li a.act { 

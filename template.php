@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 class Template{
 	public $sitenav;
 	public function renderApplicationTop(){
