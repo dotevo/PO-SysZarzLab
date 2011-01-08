@@ -63,7 +63,7 @@ h3 { font-size:1em; color:#4c7cbd; margin-bottom:12px;}
 h3 a { color:#4c7cbd; text-decoration:none;}
 h3 a:hover { text-decoration:underline;}
 
-.link { display:block; float:right; background:url(images/link-bgd.gif) repeat-x top; color:#4c7cbd; font-size:1em; text-decoration:none; line-height:.92em;}
+.link { display:block; float:left; background:url(images/link-bgd.gif) repeat-x top; color:#4c7cbd; font-size:1em; text-decoration:none; line-height:.92em;}
 .link em { display:block; background:url(images/link-left.gif) no-repeat left top;}
 .link b { display:block; background:url(images/link-right.gif) no-repeat right top; padding:5px 21px 6px 21px; font-style:normal;}
 .link:hover { text-decoration:underline;}

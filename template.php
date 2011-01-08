@@ -24,7 +24,7 @@ if(isset($this->sitenav)&$this->sitenav==true){
 ?>
             <ul class="site-nav">
                 <li><a href="index.php?controller=rezerwacjelista">Moje rezerwacje</a></li>
-                <li><a href="index.php?controller=salelista">Sale</a></li>
+                <li><a href="index.php?controller=wybierzsale">Sale</a></li>
                 <li><a href="index.php?controller=userkilista">Usterki</a></li>
                 <li class="last"><a href="index.php?controller=zapotrzebowanielista">Zapotrzebowanie</a></li>
             </ul>

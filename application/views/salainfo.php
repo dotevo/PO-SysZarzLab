@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require('template.php');
 
 class SalaInfoView{
@@ -104,8 +104,18 @@ class SalaInfoView{
                             </div>
                         </fieldset>
                     </div>
-                    <input id="Submit1" type="submit" class="btn" style="margin-left: 150px;" value="Pokaż szczegółowe informacje o stanowiskach" />
+						  <a href="#" onclick="document.getElementById('form').submit()" class="link" style="margin-left: 150px; margin-bottom: 10px"><em><b>Pokaż szczegółowe informacje o stanowiskach</b></em></a>	
+                  	
                     <hr />
+							<br>
+						  <div class="field">	
+                            <label style="width: 50px; ">
+                                Data:</label>
+                            <input type="text" name="date" value="" style="float: left"/>
+									 <p style="float: left">(DD-MM-RRRR)</p>
+									 <a href="#" onclick="document.getElementById('form').submit()" class="link" style="margin-left: 10px"><em><b>Przejdź</b></em></a>
+                    </div>
+						  <br><br>
                      <table class="tabborder" cellspacing="1">
                             <tr class="timetable">
                                 <td>Godzina</td>
@@ -128,9 +138,11 @@ class SalaInfoView{
                                 <td></td>
                             </tr>
                         </table>
-                        <input id="Submit2" type="submit" class="btn" value="Poprzedni tydzień" />
-                        <input id="Submit3" type="submit" class="btn" style="margin-left: 510px;" value="Następny tydzień" /><br />
-                        <input id="Submit4" type="submit" class="btn" style="margin-left: 300px;" value="Rezerwuj wybrany termin" />
+								<br />
+								<a href="#" onclick="document.getElementById('form').submit()" class="link"><em><b>Poprzedni tydzień</b></em></a>
+								<a href="#" onclick="document.getElementById('form').submit()" class="link" style="margin-left: 450px"><em><b>Następny tydzień</b></em></a><br />
+								<a href="#" onclick="document.getElementById('form').submit()" class="link" style="margin-left: 280px"><em><b>Rezerwuj wybrany termin</b></em></a>
+                       
                         </form>
                 </div>
             </div>

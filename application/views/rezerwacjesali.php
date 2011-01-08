@@ -1,4 +1,4 @@
-Ôªø<?php
+<?php
 require('template.php');
 
 class RezerwacjeSaliView{
@@ -19,7 +19,7 @@ class RezerwacjeSaliView{
                             <label>
                                 Data:</label>
                             <input type="text" name="text" value=""  style="width: 150px;"/>(DD-MM-RRRR)
-							<a href="#" onclick="document.getElementById('form').submit()" class="link" ><em><b>Przejd≈∫</b></em></a>
+							<a href="#" onclick="document.getElementById('form').submit()" class="link" ><em><b>Przejdº</b></em></a>
                         </div>
 						
                         <div class="wrapper">
@@ -31,20 +31,20 @@ class RezerwacjeSaliView{
                             <tr class="tabheader">
                                 <td style="width: 40px"></td>
                                 <td style="width: 100px">Godzina</td>
-                                <td style="width: 200px">ProwadzƒÖcy</td>
+                                <td style="width: 200px">Prowadz±cy</td>
                                 <td style="width: 100px"></td>
                             </tr>
                             <tr>
                                 <td><input type='checkbox' checked='true'/></td>
                                 <td>10:30</td>
                                 <td>Franek</td>
-                                <td><a href="index.php?controller=salainfo">Odwo≈Çaj</a></td>
+                                <td><a href="index.php?controller=odwolajrezerwacje">Odwo≥aj</a></td>
                             </tr>
                             <tr>
                                 <td><input type='checkbox' /></td>
                                 <td>13:50</td>
                                 <td>Tomek</td>
-                                <td><a href="index.php?controller=salainfo">Odwo≈Çaj</a></td>
+                                <td><a href="index.php?controller=odwolajrezerwacje">Odwo≥aj</a></td>
                             </tr>
                         </table>
 						</fieldset>

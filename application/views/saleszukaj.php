@@ -1,4 +1,4 @@
-ï»¿<?php
+<?php
 require('template.php');
 
 class SaleSzukajView{
@@ -41,7 +41,7 @@ class SaleSzukajView{
                             </select>
                         </div>
                         <hr />
-                        <p class="grouptitle">WyposaÅ¼enie stanowisk komputerowych:</p>
+                        <p class="grouptitle">Wyposa¿enie stanowisk komputerowych:</p>
                         <div class="field">
                             <label>
                                System operacyjny:</label>
@@ -55,10 +55,10 @@ class SaleSzukajView{
                             <input type="text" value="" /><input id="Submit1" type="submit" value="&nbsp;+&nbsp;" />
                         </div>
                         <hr />
-                        <p class="grouptitle">SprzÄ™t:</p>
+                        <p class="grouptitle">Sprzêt:</p>
                         <div class="field">
                             <label>
-                                Min. pamiÄ™ci RAM:</label>
+                                Min. pamiêci RAM:</label>
                             <input type="text" value="" />
                         </div>
                         <div class="field">
@@ -71,7 +71,8 @@ class SaleSzukajView{
                                 Karta graficzna:</label>
                             <input type="text" value="" />
                         </div>
-                        <input class="btn" id="Submit2" type="submit" value="Szukaj" />
+								<a href="index.php?controller=salelista" style="margin-top:5px"  class="link"><em><b>Szukaj</b></em></a>
+                       
                     </fieldset>
                     </form>
                 </div>

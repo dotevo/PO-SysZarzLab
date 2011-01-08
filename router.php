@@ -21,6 +21,14 @@ class Router{
 				require('application/controllers/rezerwacjesali.php');
 				return new RezerwacjeSaliController();			
 			break;
+			case 'odwolajrezerwacje':
+				require('application/controllers/odwolajrezerwacje.php');
+				return new OdwolajRezerwacjeController();			
+			break;
+			case 'wybierzsale':
+				require('application/controllers/wybierzsale.php');
+				return new WybierzSaleController();			
+			break;
 			default:
 				require('application/controllers/logowanie.php');
 				return new LogowanieController();			

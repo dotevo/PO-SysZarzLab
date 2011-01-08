@@ -1,9 +1,10 @@
 <?php
 require('template.php');
 
-class LogowanieView{
-	public function generujFormularzLogowania(){
+class WybierzSaleView{
+	public function generuj(){
 		$template=new Template();
+		$template->sitenav=true;
 		$template->renderApplicationTop();
 		//Tutaj formularz
 		?>
@@ -11,24 +12,29 @@ class LogowanieView{
             <div class="wrapper">
                 <div class="indent">
                     <div class="title">
-                        Logowanie
+                        Wybierz salę, aby uzyskać szczegółowe informacje o niej
                     </div>
-                    <p class="p1">Prosimy o zalogowanie się do systemu</p>
                     <form id="form" action="index.php?controller=logowanie" method="post">
                     <fieldset>
                         <div class="field">
                             <label>
-                                Login:</label>
-                            <input type="text" name="login" value="" />
+                                Budynek:</label>
+                            <select id="Select1" style="width: 100px">
+                                  <option>D1</option>
+                            </select>
                         </div>
                         <div class="field">
                             <label>
-                                Hasło:</label>
-                            <input type="text" name="pass" value="" />
+                                Sala:</label>
+                            <input type="text" name="login" value="" style="width:100px;"/>
                         </div>
                         <div class="wrapper">
-                            <a href="#" onclick="document.getElementById('form').submit()" class="link" style="float: right"><em><b>Loguj</b></em></a></div>
+                            <a href="index.php?controller=salainfo" onclick="document.getElementById('form').submit()" class="link" style="float: right"><em><b>Wybierz</b></em></a></div>
+									 <br/>
+						  				<a href="index.php?controller=saleszukaj">Przejdź do wyszukiwarki sal</a>
+						  			 <br/>
                     </fieldset>
+						  
                     </form>
                 </div>
             </div>
