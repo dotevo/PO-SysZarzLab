@@ -10,8 +10,11 @@ class SaleListaView{
         <div id="content">
             <div class="wrapper">
                 <div class="indent">
-				    <a href="index.php?controller=saleszukaj">Szukaj</a>
+				    
+					
                     <div class="title">
+						<a href="index.php?controller=saleszukaj">Szukaj</a>
+						<br/><br/>
                         Lista znalezionych sal
                     </div>
                     <form id="form" action="" method="post">

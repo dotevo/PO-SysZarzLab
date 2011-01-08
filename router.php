@@ -17,6 +17,10 @@ class Router{
 				require('application/controllers/salainfo.php');
 				return new SalaInfoController();			
 			break;
+			case 'rezerwacjesali':
+				require('application/controllers/rezerwacjesali.php');
+				return new RezerwacjeSaliController();			
+			break;
 			default:
 				require('application/controllers/logowanie.php');
 				return new LogowanieController();			

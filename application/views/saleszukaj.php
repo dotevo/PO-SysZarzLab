@@ -13,7 +13,7 @@ class SaleSzukajView{
                     <div class="title">
                         Podaj kryteria wyszukiwania sal
                     </div>
-                    <form id="form" action="" method="post">
+                    <form id="form" action="index.php?controller=salelista" method="post">
                     <fieldset>
                         <p class="grouptitle">Posiada wolne terminy:</p>
                         <div class="field">
