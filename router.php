@@ -6,9 +6,18 @@ class Router{
 		if(!file_exists('config.php')){
 			require('application/controllers/instalator.php');
 			return new InstalatorController();
+		}		
+		if(!isset($_SESSION['uzytkownikID'])||$_SESSION['uzytkownikID']==-1){
+			require('application/controllers/logowanie.php');
+			return new LogowanieController();			
 		}
 
 		switch($_GET['controller']){
+			case 'logout':				
+				$_SESSION['uzytkownikID']=-1;
+				require('application/controllers/logowanie.php');
+				return new LogowanieController();			
+			break;
 			case 'rezerwacjelista':
 				require('application/controllers/rezerwacjelista.php');
 				return new RezerwacjeListaController();			
