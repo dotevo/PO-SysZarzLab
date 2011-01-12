@@ -10,10 +10,10 @@ class LogowanieModel extends Model{
    
 	public function loguj($login,$pass){
 		$rezultat=mysql_query("select * FROM uzytkownicy WHERE login='".$login."' AND haslo='".$pass."'");
-		if(@mysql_num_rows($rezultat)){ 
-			return true;
-		}else 
-			return false;
+		if($row = mysql_fetch_array( $resultat )){			
+			return $row['id'];
+		} 
+		return -1;
 	}	
 }
 ?>

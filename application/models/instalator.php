@@ -33,10 +33,10 @@ class InstalatorModel{
 		$fp = fopen("config.php", "w"); 
 		flock($fp, 2); 
 		fwrite($fp, "<?php \n"); 
-		fwrite($fp, "$"."CONFIG_DB='".$this->db."';"); 
-		fwrite($fp, "$"."CONFIG_HOST='".$this->host."';"); 
-		fwrite($fp, "$"."CONFIG_USER='".$this->user."';"); 
-		fwrite($fp, "$"."CONFIG_PASS='".$this->pass."';"); 
+		fwrite($fp, "$"."CONFIG_DB='".$this->value_db."';\n"); 
+		fwrite($fp, "$"."CONFIG_HOST='".$this->value_host."';\n"); 
+		fwrite($fp, "$"."CONFIG_USER='".$this->value_user."';\n"); 
+		fwrite($fp, "$"."CONFIG_PASS='".$this->value_pass."';\n"); 
 		fwrite($fp, "?>"); 
 		flock($fp, 3); 
 		fclose($fp);

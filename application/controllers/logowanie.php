@@ -8,13 +8,13 @@ class LogowanieController{
 			require('application/models/logowanie.php');
 			$model=new LogowanieModel();
 			$result=$model->loguj($_POST['login'],$_POST['pass']);
-			if($result==true){
+			if($result!=-1){
+				$_SESSION['uzytkownikID'] = $result;
 				header("Location: index.php?controller=rezerwacjelista");
 			}
 			else{
 				$view->generujFormularzLogowania();
 			}
-			//Tutaj sprawdzanie czy has³o jest poprawne (komunikacja z modelem)
 		}else{
 			$view->generujFormularzLogowania();
 		}

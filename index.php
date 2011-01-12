@@ -1,6 +1,7 @@
 <?php
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
+session_start(); 
 
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 require('router.php');
 
 $controller=Router::getController();
