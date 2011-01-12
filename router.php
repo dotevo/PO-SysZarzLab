@@ -1,6 +1,13 @@
 <?php
 class Router{
 	public static function getController(){
+
+		//instalator
+		if(!file_exists('config.php')){
+			require('application/controllers/instalator.php');
+			return new InstalatorController();
+		}
+
 		switch($_GET['controller']){
 			case 'rezerwacjelista':
 				require('application/controllers/rezerwacjelista.php');
