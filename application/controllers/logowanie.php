@@ -24,8 +24,13 @@ class LogowanieController{
 	}
 
 	public function login($login,$pass){
+		//Sprawdzanie poprawności loginu
+		if(!ereg("^[A-Za-z0-9]{1,50}$", $login)){
+			return LOGIN_WRONG_CHARS;
+		}
+		
 		include_once('application/models/logowanie.php');
-		$model=new LogowanieModel();
+		$model=new LogowanieModel();		
 		//Sprawdzanie poprawności loginu i hasła
 		return $model->loguj($login,$pass);
 	}
