@@ -14,7 +14,7 @@ class SaleModel extends Model{
 	}	
 	
 	public function informacjeSali($budynek,$sala){		
-		$query="SELECT * FROM sale,budynki WHERE sale.numer='".$sala."' AND sale.budynkiID=budynki.id AND budynki.nazwa='".$budynek."'";				
+		$query="SELECT * FROM sale,budynki WHERE sale.numer LIKE '".$sala."' AND sale.budynkiID=budynki.id AND budynki.nazwa LIKE '".$budynek."'";				
 		return $this->getData($query);		
 	}	
 	

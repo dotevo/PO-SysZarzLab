@@ -80,14 +80,12 @@ class SalaInfoController{
 				
 				$view->generuj($sala,$konfiguracje,$profile,$terminy,$aktywna_konfiguracja,$aktywny_profil);
 			}else{
-				//Komunikat błędna sala
-				echo "syf1";
-			
+				//Nie znaleziono
+				header("Location: index.php?controller=wybierzsale&message=".WYBIERZSALE_NOT_FOUND); 			
 			}
 		}else{
-			echo "syf2";
-			//nie wybrano sali lub budynku
-			//todo przekierowanie
+			//Pusty formularz
+			header("Location: index.php?controller=wybierzsale&message=".WYBIERZSALE_EMPTYFORM); 
 		}
 	}	
 }

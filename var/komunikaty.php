@@ -5,4 +5,8 @@ define('INDEX_CONTR_ERROR','Niepoprawny kontroler!');
 
 define('LOGIN_WRONG_CHARS','Niepoprawne znaki!');
 
+define('WYBIERZSALE_EMPTYFORM',urlencode('Uzupe³nij formularz!'));
+define('WYBIERZSALE_NOT_FOUND',urlencode('Sala nie znaleziona!'));
+
+
 ?>

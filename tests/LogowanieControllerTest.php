@@ -13,7 +13,7 @@ class LogowanieControllerTest extends PHPUnit_Framework_TestCase{
 
     //Po testach
     function tearDown() {
-        unset($this->abc);
+        unset($this->obj);
     }
     function testLogin() {
 		$res=$this->obj->login('test','test');
@@ -34,8 +34,5 @@ class LogowanieControllerTest extends PHPUnit_Framework_TestCase{
 		$res=$this->obj->login('','test');
 		$this->assertEquals(LOGIN_WRONG_CHARS,$res);		        
     }	
-	/**
-     * @depends testLoginEmpty
-     */
   }
 ?>

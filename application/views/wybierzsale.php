@@ -11,8 +11,11 @@ class WybierzSaleView{
 		<div id="content">
             <div class="wrapper">
                 <div class="indent">
+					<div class="message">
+						<?php echo urldecode($_GET['message']);?>
+					</div>
                     <div class="title">
-                        Wybierz salę, aby uzyskać szczegółowe informacje o niej
+                        Wybierz salę, aby uzyskać szczegółowe informacje o niej						
                     </div>
                     <form id="form" action="index.php?controller=salainfo" method="post">
                     <fieldset>
