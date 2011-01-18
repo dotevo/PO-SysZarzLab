@@ -2,7 +2,7 @@
 require('template.php');
 
 class WybierzSaleView{
-	public function generuj(){
+	public function generujWybor($budynki){
 		$template=new Template();
 		$template->sitenav=true;
 		$template->renderApplicationTop();
@@ -14,24 +14,27 @@ class WybierzSaleView{
                     <div class="title">
                         Wybierz salę, aby uzyskać szczegółowe informacje o niej
                     </div>
-                    <form id="form" action="index.php?controller=logowanie" method="post">
+                    <form id="form" action="index.php?controller=salainfo" method="post">
                     <fieldset>
                         <div class="field">
                             <label>
                                 Budynek:</label>
-                            <select id="Select1" style="width: 100px">
-                                  <option>D1</option>
+                            <select id="Select1" name="budynek" style="width: 100px">
+							<?php
+								foreach($budynki as $row)
+									echo "<option>".$row['nazwa']."</option>";
+							?>
                             </select>
                         </div>
                         <div class="field">
                             <label>
                                 Sala:</label>
-                            <input type="text" name="login" value="" style="width:100px;"/>
+                            <input type="text" name="sala" value="" style="width:100px;"/>
                         </div>
                         <div class="wrapper">
-                            <a href="index.php?controller=salainfo" onclick="document.getElementById('form').submit()" class="link" style="float: right"><em><b>Wybierz</b></em></a></div>
+                            <a onclick="document.getElementById('form').submit()" class="link" style="float: right"><em><b>Wybierz</b></em></a></div>
 									 <br/>
-						  				<a href="index.php?controller=saleszukaj">Przejdź do wyszukiwarki sal</a>
+						  				<a href="index.php?controller=saleszukaj">Przejdź do wyszukiwarki sal</a><br/> <a href="index.php?controller=salelista&action=moje">Moje sale</a>
 						  			 <br/>
                     </fieldset>
 						  

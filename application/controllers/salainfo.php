@@ -1,12 +1,94 @@
-<?php
+ï»¿<?php
 class SalaInfoController{
 	public function doAction(){
 		//Tutaj sprawdzanie czy ju¿ u¿ytkownik nie jest zalogowany (sesje)
-		require('application/views/salainfo.php');
-		$view=new SalaInfoView();
+		include_once('application/views/salainfo.php');
+		include_once('application/models/sale.php');
 		
-		//Tutaj model pobieraj¹cy listê
-		$view->generuj();		
+		$view=new SalaInfoView();
+		$model=new SaleModel();
+		
+		if(isset($_POST['sala'])&&isset($_POST['budynek'])||isset($_GET['id'])){
+			$sala=array();
+			
+			//jeœli po ID			
+			
+			if(isset($_GET['id'])){
+			$sala=$model->informacjeSaliID($_GET['id']);
+			}
+			//Z POST budynek i sala
+			else{
+			$sala=$model->informacjeSali($_POST['budynek'],$_POST['sala']);
+			}
+			//Jeœli sala znaleziona
+			if(count($sala)>0){
+				$sala=$sala[0];
+				
+				//Pobieranie konfiguracji
+				$konfiguracje=$model->konfiguracje($sala[0]);
+				$aktywna_konfiguracjaID=-1;
+				if(isset($_POST['konfiguracja'])){
+					$aktywna_konfiguracjaID=$_POST['konfiguracja'];
+				}else{
+					//WartoÅ›Ä‡ domyÅ›lna
+					if(count($konfiguracje)>0){
+						$aktywna_konfiguracjaID=0;
+					}
+				}
+				
+				//Pobieranie informacji o konfiguracji
+				$aktywna_konfiguracja=array();
+				if($aktywna_konfiguracjaID>0){
+					$aktywna_konfiguracja=$model->konfiguracja($sala[0],$aktywna_konfiguracjaID);
+					$aktywna_konfiguracja=$aktywna_konfiguracja[0];
+					$aktywna_konfiguracja['id']=$aktywna_konfiguracjaID;
+				}else if($aktywna_konfiguracjaID==0){
+					$aktywna_konfiguracja=$model->konfiguracja($sala[0],$konfiguracje[0]['id']);
+					$aktywna_konfiguracja=$aktywna_konfiguracja[0];
+					$aktywna_konfiguracja['id']=$aktywna_konfiguracjaID;
+				}
+				
+				
+				//Pobieranie profili
+				$profile=$model->profile($sala[0]);
+				//JeÅ¼eli profil wybrany
+				$aktywny_profilID=-1;
+				if(isset($_POST['profil'])){
+					$aktywny_profilID=$_POST['profil'];
+				}else{
+					//WartoÅ›Ä‡ domyÅ›lna
+					if(count($profile)>0){
+						$aktywny_profilID=0;
+					}
+				}
+				
+				//Pobieranie informacji o profilach
+				$aktywny_profil=array();
+				if($aktywny_profilID>0){
+					$aktywny_profil=$model->profil($sala[0],$aktywny_profilID);
+					$aktywny_profil['id']=$aktywny_profilID;					
+				}else if($aktywny_profilID==0){
+					$aktywny_profil=$model->profil($sala[0],$profile[0]['id']);
+				}				
+				
+				
+				
+				//Pobieranie terminarza				
+				include('application/models/rezerwacje.php');				
+				$model2=new RezerwacjeModel();
+				$terminy=$model2->listaSali($sala['id'],$data_od,$data_do);
+				
+				$view->generuj($sala,$konfiguracje,$profile,$terminy,$aktywna_konfiguracja,$aktywny_profil);
+			}else{
+				//Komunikat bÅ‚Ä™dna sala
+				echo "syf1";
+			
+			}
+		}else{
+			echo "syf2";
+			//nie wybrano sali lub budynku
+			//todo przekierowanie
+		}
 	}	
 }
 ?>

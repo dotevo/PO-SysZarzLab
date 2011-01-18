@@ -1,22 +1,28 @@
-<?php
+﻿<?php
 class LogowanieController{
 	public function doAction(){
-		//Tutaj sprawdzanie czy ju� u�ytkownik nie jest zalogowany (sesje)
-		require('application/views/logowanie.php');
+		include('application/views/logowanie.php');
+		//Utwórz obiekt odpowiedzialny za widok
 		$view=new LogowanieView();
+		
+		//Jeśli formularz był wysłany
 		if(isset($_POST['login'])){
-			require('application/models/logowanie.php');
+			include('application/models/logowanie.php');
 			$model=new LogowanieModel();
+			
+			//Sprawdzanie poprawności loginu i hasła
 			$result=$model->loguj($_POST['login'],$_POST['pass']);
 			if($result!=-1){
+				//Poprawne logowanie
 				$_SESSION['uzytkownikID'] = $result;
 				header("Location: index.php?controller=rezerwacjelista");
 			}
 			else{
-				$view->generujFormularzLogowania();
+				//Błędne logowanie
+				$view->generujFormularzLogowania(LOGIN_ERROR);
 			}
 		}else{
-			$view->generujFormularzLogowania();
+			$view->generujFormularzLogowania("");
 		}
 	}	
 }

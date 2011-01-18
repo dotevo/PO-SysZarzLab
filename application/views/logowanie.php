@@ -2,7 +2,7 @@
 require('template.php');
 
 class LogowanieView{
-	public function generujFormularzLogowania(){
+	public function generujFormularzLogowania($komunikat){
 		$template=new Template();
 		$template->renderApplicationTop();
 		//Tutaj formularz
@@ -14,6 +14,7 @@ class LogowanieView{
                         Logowanie
                     </div>
                     <p class="p1">Prosimy o zalogowanie się do systemu</p>
+					<p class="p1" style="color: #F00"><?php echo $komunikat;?></p>
                     <form id="form" action="index.php?controller=logowanie" method="post">
                     <fieldset>
                         <div class="field">
@@ -24,7 +25,7 @@ class LogowanieView{
                         <div class="field">
                             <label>
                                 Hasło:</label>
-                            <input type="text" name="pass" value="" />
+                            <input type="password" name="pass" value="" />
                         </div>
                         <div class="wrapper">
                             <a href="#" onclick="document.getElementById('form').submit()" class="link" style="float: right"><em><b>Loguj</b></em></a></div>
