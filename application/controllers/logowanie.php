@@ -6,12 +6,9 @@ class LogowanieController{
 		$view=new LogowanieView();
 		
 		//Jeśli formularz był wysłany
-		if(isset($_POST['login'])){
-			include('application/models/logowanie.php');
-			$model=new LogowanieModel();
-			
+		if(isset($_POST['login'])){			
 			//Sprawdzanie poprawności loginu i hasła
-			$result=$model->loguj($_POST['login'],$_POST['pass']);
+			$result=login($_POST['login'],$_POST['pass']);
 			if($result!=-1){
 				//Poprawne logowanie
 				$_SESSION['uzytkownikID'] = $result;
@@ -24,6 +21,13 @@ class LogowanieController{
 		}else{
 			$view->generujFormularzLogowania("");
 		}
-	}	
+	}
+
+	public function login($login,$pass){
+		include_once('application/models/logowanie.php');
+		$model=new LogowanieModel();
+		//Sprawdzanie poprawności loginu i hasła
+		return $model->loguj($login,$pass);
+	}
 }
 ?>

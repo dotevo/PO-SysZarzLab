@@ -1,7 +1,7 @@
 ï»¿<?php
 class SalaInfoController{
 	public function doAction(){
-		//Tutaj sprawdzanie czy ju¿ u¿ytkownik nie jest zalogowany (sesje)
+		//Tutaj sprawdzanie czy juÅ¼ uÅ¼tkownik nie jest zalogowany (sesje)
 		include_once('application/views/salainfo.php');
 		include_once('application/models/sale.php');
 		
@@ -11,7 +11,7 @@ class SalaInfoController{
 		if(isset($_POST['sala'])&&isset($_POST['budynek'])||isset($_GET['id'])){
 			$sala=array();
 			
-			//jeœli po ID			
+			//jeÅ¼eli po ID			
 			
 			if(isset($_GET['id'])){
 			$sala=$model->informacjeSaliID($_GET['id']);
@@ -20,7 +20,7 @@ class SalaInfoController{
 			else{
 			$sala=$model->informacjeSali($_POST['budynek'],$_POST['sala']);
 			}
-			//Jeœli sala znaleziona
+			//JeÅ¼eli sala znaleziona
 			if(count($sala)>0){
 				$sala=$sala[0];
 				
