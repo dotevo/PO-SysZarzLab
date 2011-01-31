@@ -8,7 +8,7 @@ class LogowanieController{
 		//Jeśli formularz był wysłany
 		if(isset($_POST['login'])){			
 			//Sprawdzanie poprawności loginu i hasła
-			$result=login($_POST['login'],$_POST['pass']);
+			$result=$this->login($_POST['login'],$_POST['pass']);
 			if($result!=-1){
 				//Poprawne logowanie
 				$_SESSION['uzytkownikID'] = $result;

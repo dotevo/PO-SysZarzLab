@@ -31,6 +31,18 @@ hr {margin-top: 5px; margin-bottom:5px; clear: both}
 .timetable {font-weight: bold; text-align:center; font-size: 11px}
 .timetable td {width: 80px;}
 
+.wolny{
+	background: LightBlue;
+}
+.wolny:hover{
+	background-color: Blue;
+	cursor:pointer;
+}
+
+.zajety{
+	background-color: Red;
+}
+
 /*==================forms====================*/
 input, select { vertical-align:middle; font-weight:normal;}
 img {border:0; vertical-align:top; text-align:left;}

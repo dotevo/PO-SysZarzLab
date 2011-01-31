@@ -3,6 +3,7 @@
 session_start(); 
 //Raportowanie b³êdów
 //error_reporting(E_ERROR | E_WARNING | E_PARSE);
+error_reporting(E_ERROR );
 
 //Do³¹czenie pliku z klas¹ Router
 include('router.php');

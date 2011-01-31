@@ -2,7 +2,19 @@
 require('template.php');
 
 class SalaInfoView{
-	public function generuj($sala,$konfiguracje,$profile,$terminy,$aktywna_konfiguracja,$aktywny_profil){
+	public function generuj($sala,$konfiguracje,$profile,$terminy,$aktywna_konfiguracja,$aktywny_profil,$dzien){
+		$terminy_podzielone=array();
+		$i=0;	
+		while(isset($terminy[$i])){
+			if($terminy[$i]["odwolana"]==0){
+				$data=explode(" ",$terminy[$i]["data_od"]);			
+				$godzina=explode(":",$data[1]);						
+				$terminy_podzielone[$data[0]][(int)$godzina[0]]=$terminy[$i];
+			}
+			$i++;
+		}
+	
+	
 		$template=new Template();
 		$template->sitenav=true;
 		$template->renderApplicationTop();
@@ -25,7 +37,7 @@ class SalaInfoView{
                             <div class="field hour">
                                 <label>
                                     Budynek:</label>
-                                <?php echo $sala['nazwa']; ?>
+                                <?php echo $sala['Nazwa']; ?>
                             </div>
                             <div class="field hour">
                                 <label>
@@ -69,12 +81,12 @@ class SalaInfoView{
                             <div class="field">
                                 <label>
                                    Liczba stanowisk ogółem:</label>
-                                ###
+                                <?php echo $sala['stanowiska']; ?>
                             </div>
                             <div class="field">
                                 <label>
                                    Opiekun:</label>
-                                ###
+                                <?php echo $sala['imie']." ".$sala['nazwisko']; ?>
                             </div>
                             <div class="field hour">
                                 <label>
@@ -131,37 +143,49 @@ class SalaInfoView{
 						  <div class="field">	
                             <label style="width: 50px; ">
                                 Data:</label>
-                            <input type="text" name="date" value="" style="float: left"/>
-									 <p style="float: left">(DD-MM-RRRR)</p>
+                            <input type="text" name="data" value="" style="float: left"/>
+									 <p style="float: left">(RRRR-MM-DD)</p>
 									 <a href="#" onclick="document.getElementById('form').submit()" class="link" style="margin-left: 10px"><em><b>Przejdź</b></em></a>
                     </div>
 						  <br><br>
                      <table class="tabborder" cellspacing="1">
                             <tr class="timetable">
                                 <td>Godzina</td>
-                                <td>DD-MM-RRRR</td>
-                                <td>DD-MM-RRRR</td>
-                                <td>DD-MM-RRRR</td>
-                                <td>DD-MM-RRRR</td>
-                                <td>DD-MM-RRRR</td>
-                                <td>DD-MM-RRRR</td>
-                                <td>DD-MM-RRRR</td>
+								<?php
+								 $day=60*60*24;
+								 for($z=0;$z<7;$z++){
+									echo "<td>";
+									echo date( 'Y-m-d', strtotime($dzien)+$day*$z );
+									echo "</td>";
+								 }
+								 ?>
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+							<?php
+								for($i=0;$i<24;$i++){
+								?>
+								<tr>
+                                <td><?php echo $i.":00"; ?></td>
+									<?php
+										for($j=0;$j<7;$j++){
+											$dateQ=date( 'Y-m-d', strtotime($dzien)+$day*$j );
+											echo (isset($terminy_podzielone[$dateQ][$i]["id"])?"<td class='zajety'>Zajęte</td>":"<td class='wolny' onClick='document.location=\"index.php?controller=rezerwacjelista&sala=".$sala[0]."&data=".$dateQ."&godzina=".$i."\"'>");
+										}
+									?>
+								</tr>
+								<?php
+								
+								}							
+							?>
+                            
                         </table>
 								<br />
-								<a href="#" onclick="document.getElementById('form').submit()" class="link"><em><b>Poprzedni tydzień</b></em></a>
-								<a href="#" onclick="document.getElementById('form').submit()" class="link" style="margin-left: 450px"><em><b>Następny tydzień</b></em></a><br />
-								<a href="#" onclick="document.getElementById('form').submit()" class="link" style="margin-left: 280px"><em><b>Rezerwuj wybrany termin</b></em></a>
+								<?php
+									$dataP=date( 'Y-m-d', strtotime($dzien)-$day*7 );
+									$dataN=date( 'Y-m-d', strtotime($dzien)+$day*7 );
+								?>
+								<a href="index.php?controller=salainfo&id=<?php echo $sala[0]."&data=".$dataP; ?>" class="link"><em><b>Poprzedni tydzień</b></em></a>
+								<a href="index.php?controller=salainfo&id=<?php echo $sala[0]."&data=".$dataN; ?>" class="link" style="margin-left: 450px"><em><b>Następny tydzień</b></em></a><br />
+								<a onclick="document.getElementById('form').submit()" class="link" style="margin-left: 280px"><em><b>Rezerwuj wybrany termin</b></em></a>
                        
                         </form>
                 </div>

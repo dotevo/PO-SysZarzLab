@@ -76,9 +76,15 @@ class SalaInfoController{
 				//Pobieranie terminarza				
 				include('application/models/rezerwacje.php');				
 				$model2=new RezerwacjeModel();
-				$terminy=$model2->listaSali($sala['id'],$data_od,$data_do);
+				$terminy=$model2->listaSali($sala[0],$data_od,$data_do);
+			
 				
-				$view->generuj($sala,$konfiguracje,$profile,$terminy,$aktywna_konfiguracja,$aktywny_profil);
+				$dataTTT=date("Y-m-d");
+				if(isset($_GET["data"]))
+					$dataTTT=$_GET["data"];
+				if(isset($_POST["data"]))
+					$dataTTT=$_POST["data"];
+				$view->generuj($sala,$konfiguracje,$profile,$terminy,$aktywna_konfiguracja,$aktywny_profil,$dataTTT);
 			}else{
 				//Nie znaleziono
 				header("Location: index.php?controller=wybierzsale&message=".WYBIERZSALE_NOT_FOUND); 			

@@ -15,12 +15,12 @@ class RezerwacjeModel extends Model{
    }
     
 	public function listaUzytkownika($id){
-		$query="SELECT rezerwacje.id AS id, budynki.nazwa as budynek,rezerwacje.odwolana, sale.numer as sala, od as data_od FROM rezerwacje, sale, budynki WHERE rezerwacje.saleID = sale.id AND sale.budynkiID = budynki.id  AND uzytkownicyID =".$id;		
+		$query="SELECT rezerwacje.id AS id, budynki.nazwa as budynek,rezerwacje.odwolana, sale.numer as sala, od as data_od FROM rezerwacje, sale, budynki WHERE rezerwacje.saleID = sale.id AND sale.budynkiID = budynki.id  AND uzytkownicyID =".$id." ORDER BY od DESC";		
 		return $this->getData($query);	
 	}	
 	
-	public function listaSali($id){		
-		$query="SELECT rezerwacje.id AS id, budynki.nazwa as budynek, sale.numer as sala, od as data_od, do as data_do, imie, nazwisko, odwolana, powod FROM rezerwacje, sale, budynki,uzytkownicy WHERE rezerwacje.saleID = sale.id AND sale.budynkiID = budynki.id AND rezerwacje.uzytkownicyID = uzytkownicy.id AND sale.id =".$id;				
+	public function listaSali($id,$a,$b){		
+		$query="SELECT rezerwacje.id AS id, budynki.nazwa as budynek, sale.numer as sala, od as data_od, do as data_do, imie, nazwisko, odwolana, powod FROM rezerwacje, sale, budynki,uzytkownicy WHERE rezerwacje.saleID = sale.id AND sale.budynkiID = budynki.id AND rezerwacje.uzytkownicyID = uzytkownicy.id AND sale.id =".$id;								
 		return $this->getData($query);
 	}	
 	
@@ -31,7 +31,8 @@ class RezerwacjeModel extends Model{
 	}
 	
 	public function dodajRezerwacje($idUser,$idSala,$godzina,$dzien){	
-		//TODO
+		$query="INSERT INTO rezerwacje (saleID,uzytkownicyID,od) VALUES(".$idSala.",".$idUser.",'".$dzien." ".$godzina.":00:00')";
+		mysql_query($query);
 	}
 }
 ?>

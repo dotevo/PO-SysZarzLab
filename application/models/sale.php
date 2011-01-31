@@ -19,7 +19,8 @@ class SaleModel extends Model{
 	}	
 	
 	public function informacjeSaliID($id){		
-		$query="SELECT *,(SELECT COUNT(id) FROM stanowiska WHERE saleID=".$id.") as stanowiska FROM sale,budynki WHERE sale.budynkiID=budynki.id AND sale.id=".$id;				
+		//$query="SELECT *,(SELECT COUNT(id) FROM stanowiska WHERE saleID=".$id.") as stanowiska FROM sale,budynki WHERE sale.budynkiID=budynki.id AND sale.id=".$id;				
+		$query="SELECT * FROM (SELECT sale.id,opiekunID,Nazwa,numer,(SELECT COUNT(id) FROM stanowiska WHERE saleID=".$id.") as stanowiska FROM sale,budynki WHERE sale.budynkiID=budynki.id AND sale.id=".$id.") as t JOIN  uzytkownicy ON t.opiekunID=uzytkownicy.id";
 		return $this->getData($query);		
 	}	
 	
